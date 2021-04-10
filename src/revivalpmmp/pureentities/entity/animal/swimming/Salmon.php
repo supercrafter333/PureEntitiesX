@@ -21,6 +21,7 @@ declare(strict_types=1);
 
 namespace revivalpmmp\pureentities\entity\animal\swimming;
 
+use pocketmine\item\Item;
 use revivalpmmp\pureentities\data\Data;
 use revivalpmmp\pureentities\entity\animal\SwimmingAnimal;
 
@@ -41,14 +42,14 @@ class Salmon extends SwimmingAnimal{
 	}
 
 	public function getMaxHealth() : int{
-		return 10;
+		return 5;
 	}
 
-	public function getDrops() : array{
-		return [];
-	}
+    public function getDrops() : array{
+        return [Item::get(460, 0, 1)];
+    }
 
-	public function updateXpDropAmount() : void{
-
-	}
+    public function updateXpDropAmount() : void{
+        $this->xpDropAmount = 2;
+    }
 }

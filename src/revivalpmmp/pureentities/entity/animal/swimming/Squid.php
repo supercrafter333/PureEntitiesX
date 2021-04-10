@@ -21,10 +21,36 @@ declare(strict_types=1);
 
 namespace revivalpmmp\pureentities\entity\animal\swimming;
 
+use pocketmine\item\Item;
 use revivalpmmp\pureentities\data\Data;
 use revivalpmmp\pureentities\entity\animal\Animal;
 
 class Squid extends \pocketmine\entity\Squid implements Animal{
 	//TODO implement
 	const NETWORK_ID = Data::NETWORK_IDS["squid"];
+
+    public function initEntity() : void{
+        parent::initEntity();
+        $this->speed = 1.1;
+    }
+
+    public function getName() : string{
+        return "Squid";
+    }
+
+    public function getSpeed() : float{
+        return $this->speed;
+    }
+
+    public function getMaxHealth() : int{
+        return 10;
+    }
+
+    public function getDrops() : array{
+        return [Item::get(351, 0, mt_rand(1, 3))];
+    }
+
+    public function updateXpDropAmount() : void{
+        $this->xpDropAmount = mt_rand(3, 4);
+    }
 }

@@ -21,6 +21,7 @@ declare(strict_types=1);
 
 namespace revivalpmmp\pureentities\entity\animal\swimming;
 
+use pocketmine\item\Item;
 use revivalpmmp\pureentities\data\Data;
 use revivalpmmp\pureentities\entity\animal\SwimmingAnimal;
 
@@ -45,10 +46,10 @@ class Dolphin extends SwimmingAnimal{
 	}
 
 	public function getDrops() : array{
-		return [];
+		return [Item::get(460, 0, mt_rand(1, 3))];
 	}
 
 	public function updateXpDropAmount() : void{
-
+	    $this->xpDropAmount = mt_rand(3, 4);
 	}
 }                                                                                                                                           
